@@ -10,5 +10,6 @@ namespace ProyectoMongoCasosDeUsos.PuertaEntrada.Repositorio
     public interface IPacienteRepositorio
     {
         Task<Paciente> AgregarPaciente(Paciente paciente);
+        Task<List<Paciente>> ObtenerListaPacientes();
     }
 }

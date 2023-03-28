@@ -24,5 +24,10 @@ namespace ProyectoMongoApi.Controllers
         {
             return await _pacienteUseCase.AgregarPaciente(_mapper.Map<Paciente>(command));
         }
+        [HttpGet]
+        public async Task<List<Paciente>> ObtenerPacientes()
+        {
+            return await _pacienteUseCase.ObtenerListaPacientes();
+        }
     }
 }

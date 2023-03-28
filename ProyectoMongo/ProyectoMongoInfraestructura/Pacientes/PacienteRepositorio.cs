@@ -34,5 +34,18 @@ namespace ProyectoMongoInfraestructura.Pacientes
             }
             return paciente;
         }
+
+        public async Task<List<Paciente>> ObtenerListaPacientes()
+        {
+            var pacientes = await _coleccion.FindAsync(Builders<EntidadPaciente>.Filter.Empty);
+            var listaPacientes = pacientes.ToEnumerable().Select(paciente => _mapper.Map<Paciente>(paciente)).ToList();
+
+            if (pacientes == null)
+            {
+                throw new Exception($"Ingrese la informacion necesaria.");
+            }
+            return listaPacientes;
+
+        }
     }
 }

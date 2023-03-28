@@ -23,5 +23,10 @@ namespace ProyectoMongoCasosDeUsos.CasosDeUso
             return await _pacienteRepositorio.AgregarPaciente(paciente);
         }
 
+        public async Task<List<Paciente>> ObtenerListaPacientes()
+        {
+            return await _pacienteRepositorio.ObtenerListaPacientes();
+        }
+
     }
 }
