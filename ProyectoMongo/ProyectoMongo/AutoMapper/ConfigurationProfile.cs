@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using ProyectoMongoEntidades.Comandos;
+using ProyectoMongoEntidades.Entidades;
+using ProyectoMongoInfraestructura.EntidadesMongo;
 
 namespace ProyectoMongoApi.AutoMapper
 {

@@ -1,5 +1,11 @@
 using AutoMapper.Data;
 using ProyectoMongoApi.AutoMapper;
+using ProyectoMongoCasosDeUsos.CasosDeUso;
+using ProyectoMongoCasosDeUsos.PuertaEntrada;
+using ProyectoMongoCasosDeUsos.PuertaEntrada.Repositorio;
+using ProyectoMongoInfraestructura;
+using ProyectoMongoInfraestructura.Interfaces;
+using ProyectoMongoInfraestructura.Pacientes;
 
 var builder = WebApplication.CreateBuilder(args);
 
