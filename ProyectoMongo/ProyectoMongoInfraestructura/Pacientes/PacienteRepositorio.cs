@@ -72,5 +72,25 @@ namespace ProyectoMongoInfraestructura.Pacientes
             return _mapper.Map<Paciente>(actualizar);
 
         }
+
+        public async Task<Paciente> EliminarPaciente(string id)
+        {
+            var filter = Builders<EntidadPaciente>.Filter.Eq(paciente => paciente.Id_Mongo, id);
+            var eliminar = await _coleccion.Find(filter).FirstOrDefaultAsync();
+
+            if (eliminar == null)
+            {
+                throw new Exception($"paciente con id {id} no encontrado.");
+            }
+
+            var eliminarPaciente = await _coleccion.DeleteOneAsync(filter);
+
+            if (eliminarPaciente.DeletedCount == 0)
+            {
+                throw new Exception($"No se pudo eliminar el paciente.");
+            }
+
+            return _mapper.Map<Paciente>(eliminar);
+        }
     }
 }

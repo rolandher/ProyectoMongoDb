@@ -35,5 +35,11 @@ namespace ProyectoMongoApi.Controllers
         {
             return await _pacienteUseCase.ActualizarPaciente(_mapper.Map<ActualizarPaciente>(command), id);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<Paciente> EliminarPaciente(string id)
+        {
+            return await _pacienteUseCase.EliminarPaciente(id);
+        }
     }
 }

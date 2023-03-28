@@ -32,6 +32,10 @@ namespace ProyectoMongoCasosDeUsos.CasosDeUso
         {
             return await _pacienteRepositorio.ActualizarPaciente(actualizarPaciente, id);
         }
+        public async Task<Paciente> EliminarPaciente(string id)
+        {
+            return await _pacienteRepositorio.EliminarPaciente(id);
+        }
 
     }
 }

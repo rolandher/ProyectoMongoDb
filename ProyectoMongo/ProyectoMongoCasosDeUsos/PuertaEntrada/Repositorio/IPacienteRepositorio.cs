@@ -13,5 +13,7 @@ namespace ProyectoMongoCasosDeUsos.PuertaEntrada.Repositorio
         Task<Paciente> AgregarPaciente(Paciente paciente);
         Task<List<Paciente>> ObtenerListaPacientes();       
         Task<Paciente> ActualizarPaciente(ActualizarPaciente actualizarPaciente, string id);
+
+        Task<Paciente> EliminarPaciente(string id);
     }
 }
