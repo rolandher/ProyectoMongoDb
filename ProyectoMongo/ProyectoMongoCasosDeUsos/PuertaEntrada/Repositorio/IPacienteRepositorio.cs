@@ -1,4 +1,5 @@
-﻿using ProyectoMongoEntidades.Entidades;
+﻿using ProyectoMongoEntidades.Comandos;
+using ProyectoMongoEntidades.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace ProyectoMongoCasosDeUsos.PuertaEntrada.Repositorio
     public interface IPacienteRepositorio
     {
         Task<Paciente> AgregarPaciente(Paciente paciente);
-        Task<List<Paciente>> ObtenerListaPacientes();
+        Task<List<Paciente>> ObtenerListaPacientes();       
+        Task<Paciente> ActualizarPaciente(ActualizarPaciente actualizarPaciente, string id);
     }
 }

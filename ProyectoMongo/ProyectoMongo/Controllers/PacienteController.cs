@@ -29,5 +29,11 @@ namespace ProyectoMongoApi.Controllers
         {
             return await _pacienteUseCase.ObtenerListaPacientes();
         }
+
+        [HttpPut("{id}")]
+        public async Task<Paciente> ActualizarPaciente([FromBody] ActualizarPaciente command, string id)
+        {
+            return await _pacienteUseCase.ActualizarPaciente(_mapper.Map<ActualizarPaciente>(command), id);
+        }
     }
 }

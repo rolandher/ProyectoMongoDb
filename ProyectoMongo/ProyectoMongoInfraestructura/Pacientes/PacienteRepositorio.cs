@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MongoDB.Driver;
 using ProyectoMongoCasosDeUsos.PuertaEntrada.Repositorio;
+using ProyectoMongoEntidades.Comandos;
 using ProyectoMongoEntidades.Entidades;
 using ProyectoMongoInfraestructura.EntidadesMongo;
 using ProyectoMongoInfraestructura.Interfaces;
@@ -45,6 +46,30 @@ namespace ProyectoMongoInfraestructura.Pacientes
                 throw new Exception($"Ingrese la informacion necesaria.");
             }
             return listaPacientes;
+
+        }
+
+        public async Task<Paciente> ActualizarPaciente(ActualizarPaciente actualizarPaciente, string id)
+        {
+            var filter = Builders<EntidadPaciente>.Filter.Eq(paciente => paciente.Id_Mongo, id);
+            var actualizar = await _coleccion.Find(filter).FirstOrDefaultAsync();
+
+            if (actualizar == null)
+            {
+                throw new Exception($"Marca con id {id} no encontrado.");
+            }
+
+            actualizar.Nombre = actualizarPaciente.Nombre;
+            actualizar.Fecha_Nacimiento = actualizarPaciente.Fecha_Nacimiento;
+            actualizar.Sexo = actualizarPaciente.Sexo;
+            var actualizarPacient = await _coleccion.ReplaceOneAsync(filter, actualizar);
+
+            if (actualizarPacient.ModifiedCount == 0)
+            {
+                throw new Exception($"No se pudo actualizar el paciente.");
+            }
+
+            return _mapper.Map<Paciente>(actualizar);
 
         }
     }

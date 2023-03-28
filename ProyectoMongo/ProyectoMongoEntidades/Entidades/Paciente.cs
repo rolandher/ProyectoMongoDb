@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using ProyectoMongoEntidades.Comandos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +32,7 @@ namespace ProyectoMongoEntidades.Entidades
                 throw new ArgumentNullException("El sexo es requerido.");
             }
 
-
         }
+       
     }
 }

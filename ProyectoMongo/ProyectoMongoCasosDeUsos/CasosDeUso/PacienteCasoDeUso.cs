@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProyectoMongoEntidades.Comandos;
 
 namespace ProyectoMongoCasosDeUsos.CasosDeUso
 {
@@ -26,6 +27,10 @@ namespace ProyectoMongoCasosDeUsos.CasosDeUso
         public async Task<List<Paciente>> ObtenerListaPacientes()
         {
             return await _pacienteRepositorio.ObtenerListaPacientes();
+        }
+        public async Task<Paciente> ActualizarPaciente(ActualizarPaciente actualizarPaciente, string id)
+        {
+            return await _pacienteRepositorio.ActualizarPaciente(actualizarPaciente, id);
         }
 
     }

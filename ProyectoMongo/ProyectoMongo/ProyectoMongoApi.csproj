@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ProyectoMongoCasosDeUsos\ProyectoMongoCasosDeUsos.csproj" />
     <ProjectReference Include="..\ProyectoMongoEntidades\ProyectoMongoEntidades.csproj" />
+    <ProjectReference Include="..\ProyectoMongoInfraestructura\ProyectoMongoInfraestructura.csproj" />
   </ItemGroup>
 
 </Project>
